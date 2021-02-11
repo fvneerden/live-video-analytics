@@ -4,6 +4,6 @@ This topology enables you to run video analytics on a live feed from an RTSP-ca
 
 <br>
 <p align="center">
-  <img src="./gRPC-media-graph.png" title="Analyzing live video using gRPC Extension to send images to the OpenVINO(TM) DL Streamer - Edge AI Extension module from Intel"/>
+  <img src="./topology.png" title="Analyzing live video using gRPC Extension to send images to the OpenVINO(TM) DL Streamer - Edge AI Extension module from Intel"/>
 </p>
 <br>
