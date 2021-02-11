@@ -4,7 +4,7 @@
 		{
 			"opName":"GraphTopologySet",
 			"opParams":{
-				"topologyUrl":"https://raw.githubusercontent.com/fvneerden/lva-intel/main/topologies/topologyOpenVINO.json"
+				"topologyUrl":"https://raw.githubusercontent.com/live-video-analytics/master/MediaGraph/topologies/grpcExtensionOpenVINO/2.0/topology.json"
 			}
 		},
 		{
