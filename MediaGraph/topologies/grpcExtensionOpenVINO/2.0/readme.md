@@ -1,4 +1,4 @@
-# Analyzing live video using gRPC Extension to send images to the OpenVINO™ Model Server – AI Extension module from Intel
+# Analyzing live video using gRPC Extension to send images to the OpenVINO(TM) DL Streamer - Edge AI Extension module from Intel
 
 This topology enables you to run video analytics on a live feed from an RTSP-capable camera. The gRPC Extension allows you to create images at video frame rate from the camera (as controlled by the frame rate filter processor node) are converted to images, and sent to the [OpenVINO™ Model Server – AI Extension](https://aka.ms/lva-intel-ovms) module provided by Intel. The results are then published to the IoT Edge Hub. You can see how this topology is used in [this](https://aka.ms/lva-intel-ovms-tutorial) tutorial.
 
