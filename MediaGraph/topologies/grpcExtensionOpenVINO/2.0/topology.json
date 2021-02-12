@@ -54,13 +54,13 @@
 			{
 				"name":"frameWidth",
 				"type":"String",
-				"description":"Width of the video frame to be received from LVA.",
+				"description":"Width of the image frame to be sent to the gRPC Server.",
 				"default":"416"
 			},
 			{
 				"name":"frameHeight",
 				"type":"String",
-				"description":"Height of the video frame to be received from LVA.",
+				"description":"Height of the image frame to be sent to the gRPC Server.",
 				"default":"416"
 			}
 		],
