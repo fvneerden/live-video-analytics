@@ -14,7 +14,7 @@ The RTSP source will split video into a Signal Gate which will hold back the vid
 The code sample shared here is needs to be converted into an image. This can be done using the same steps as with our [objectCounter module](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/event-based-video-recording-tutorial). Navigate to the objectsEventFilter folder in VS Code and follow [these steps](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/event-based-video-recording-tutorial#generate-and-deploy-the-iot-edge-deployment-manifest)
 
 ## Deploy the module
-Now that you have the module pushed to your Azure Container Registry you can create a deployment manifest that will reference it and deploy it to your LVA IoT Edge device. A sample template is included in this folder. You can create a deployment manifest off of this template. 
+Now that you have the module pushed to your Azure Container Registry you can create a deployment manifest that will reference it and deploy it to your LVA IoT Edge device. A sample template is included [here](./templates/deployment.objectsEventFilter.template.json). You can create a deployment manifest off of this template. 
 *Pay attentention to to the bottom part of the template. This is where you specify the attribute values and confidence level to trigger on.
 
 
