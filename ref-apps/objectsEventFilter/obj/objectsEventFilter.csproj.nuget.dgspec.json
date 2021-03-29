@@ -1,0 +1,93 @@
+{
+  "format": 1,
+  "restore": {
+    "c:\\Users\\fvneerden\\Documents\\git\\lva-20\\live-video-analytics-iot-edge-csharp\\src\\edge\\modules\\objectsEventFilter\\objectsEventFilter.csproj": {}
+  },
+  "projects": {
+    "c:\\Users\\fvneerden\\Documents\\git\\lva-20\\live-video-analytics-iot-edge-csharp\\src\\edge\\modules\\objectsEventFilter\\objectsEventFilter.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "c:\\Users\\fvneerden\\Documents\\git\\lva-20\\live-video-analytics-iot-edge-csharp\\src\\edge\\modules\\objectsEventFilter\\objectsEventFilter.csproj",
+        "projectName": "objectsEventFilter",
+        "projectPath": "c:\\Users\\fvneerden\\Documents\\git\\lva-20\\live-video-analytics-iot-edge-csharp\\src\\edge\\modules\\objectsEventFilter\\objectsEventFilter.csproj",
+        "packagesPath": "C:\\Users\\fvneerden\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\fvneerden\\Documents\\git\\lva-20\\live-video-analytics-iot-edge-csharp\\src\\edge\\modules\\objectsEventFilter\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\fvneerden\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "allWarningsAsErrors": true,
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.Azure.Devices.Client": {
+              "target": "Package",
+              "version": "[1.*, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.Extensions.Configuration.Binder": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.Extensions.Configuration.EnvironmentVariables": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.Extensions.Configuration.FileExtensions": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            },
+            "System.Runtime.Loader": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
