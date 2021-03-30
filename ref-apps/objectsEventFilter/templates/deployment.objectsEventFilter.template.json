@@ -130,8 +130,7 @@
                 },
                 "Env": [
                   "PIPELINE_NAME=object_classification",
-                  "PIPELINE_VERSION=vehicle_attributes_recognition",
-                  "LOG_LEVEL=DEBUG"
+                  "PIPELINE_VERSION=vehicle_attributes_recognition"
                 ],
                 "HostConfig": {
                   "Binds": [
