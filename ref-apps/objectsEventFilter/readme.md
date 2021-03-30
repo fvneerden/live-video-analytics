@@ -8,6 +8,60 @@ When you deploy this module and use the included deployment template and tolopol
 
 The RTSP source will split video into a Signal Gate which will hold back the video flow and the gRPC Extension which will create images out of the video and feed to the AI Inference service. the gRPC extension will also forward the inference results to the IoT Hub sink. Using the IoT Edge message routing set in the template we forward the inference results to the objectsEventFilter module. Once the filter criteria are met as set in the deployment manifest the objectsEventFilter module will forward a signal to the Signal Gate which will start the event based recording to an Azure Media Services asset.
 
+Sample Inference result:
+```
+{
+      "type": "entity",
+      "entity": {
+        "tag": {
+          "value": "vehicle",
+          "confidence": 0.8907926
+        },
+        "attributes": [
+          {
+            "name": "color",
+            "value": "white",
+            "confidence": 0.8907926
+          },
+          {
+            "name": "type",
+            "value": "van",
+            "confidence": 0.8907926
+          }
+        ],
+        "box": {
+          "l": 0.63165444,
+          "t": 0.80648696,
+          "w": 0.1736759,
+          "h": 0.22395049
+        }
+ }
+
+```
+
+Sample attribute filter in the deployment template:
+```
+    "objectsEventFilter": {
+      "properties.desired": {
+        "objectTypeValue": "van",
+        "objectTypeName": "type",
+        "objectTagValue": "white",
+        "objectTagName": "color",
+        "objectConfidence": 0.8
+      }
+    }
+```
+
+Sample IoT Message that is emitted when the objectEventFilter Module has a match between the inference results and the specified filter objective in the deployment template:
+```
+[IoTHubMonitor] [2:05:28 PM] Message received from [nuclva20/objectsEventFilter]:
+{
+  "confidence": 0.8907926,
+  "color": "white",
+  "type": "van"
+}
+```
+
 ## How to prepare for deployment
 1) Clone this repo to your development machine where you also have the LVA tutorials repo cloned
 2) Copy/move the objectsEventFilter folder to the LVA folder live-video-analytics-iot-edge-csharp\src\edge\modules\
