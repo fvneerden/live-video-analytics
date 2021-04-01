@@ -106,7 +106,7 @@
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "$CONTAINER_REGISTRY_USERNAME_myacr.azurecr.io/<YOUR_IMAGE_NAME>",
+              "image": "$CONTAINER_REGISTRY_USERNAME_myacr.azurecr.io/objectseventfilter",
               "createOptions": {
                 
               }
