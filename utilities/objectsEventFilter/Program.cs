@@ -65,7 +65,10 @@ namespace ObjectEventFilter
             Twin moduleTwin = ioTHubModuleClient.GetTwinAsync().GetAwaiter().GetResult();
             ReadDesiredProperties(moduleTwin.Properties.Desired);
         }
-
+        
+        /// <summary>
+        /// Reads the IoT Module settings from the deployment and sets them in the objectsEventFilter runtime
+        /// </summary>
         private static void ReadDesiredProperties(TwinCollection desiredProperties)
         {
             if (desiredProperties.Contains("objectTagValue"))
@@ -98,6 +101,9 @@ namespace ObjectEventFilter
             Console.WriteLine($"objectConfidence set to {objectConfidence}");            
         }
 
+        /// <summary>
+        /// Updates the desired properties on change during runtime.
+        /// </summary>
         private static async Task OnDesiredPropertyChanged(TwinCollection desiredProperties, object userContext)
         {                        
             try
