@@ -71,8 +71,36 @@ Sample IoT Message that is emitted when the objectEventFilter Module has a match
 The code sample shared here is needs to be converted into a docker image. This can be done using the same steps as with our [objectCounter module](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/event-based-video-recording-tutorial). Navigate to the objectsEventFilter folder in VS Code and follow [these steps](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/event-based-video-recording-tutorial#generate-and-deploy-the-iot-edge-deployment-manifest)
 
 ## Deploy the module
-Now that you have the module pushed to your Azure Container Registry you can create a deployment manifest that will reference it and deploy it to your IoT Edge device. A sample template is included [here](./templates/deployment.objectsEventFilter.template.json). You can create a deployment manifest off of this template. 
+Now that you have the module pushed to your Azure Container Registry you can create a deployment manifest that will reference it and deploy it to your IoT Edge device. A sample template is included [here](./templates/deployment.objectsEventFilter.template.json). You can create a deployment manifest off of this template. There are a couple important things in this template.
+
+The routing of IoT messages between the different IoT Modules are specified here:
+```
+"routes": {
+          "ObjectsEventFilterToIoTHub": "FROM /messages/modules/objectsEventFilter/outputs/* INTO $upstream",
+          "LVAToObjectsEventFilter": "FROM /messages/modules/lvaEdge/outputs/detectedObjects INTO BrokeredEndpoint(\"/modules/objectsEventFilter/inputs/detectedObjects\")",
+          "LVADiagnosticsToIoTHub": "FROM /messages/modules/lvaEdge/outputs/AmsDiagnostics/* INTO $upstream",
+          "LVAOperationalToIoTHub": "FROM /messages/modules/lvaEdge/outputs/AmsOperational/* INTO $upstream",
+          "ObjectsEventFilterToLVA": "FROM /messages/modules/objectsEventFilter/outputs/objectsEventFilterTrigger INTO BrokeredEndpoint(\"/modules/lvaEdge/inputs/recordingTrigger\")"
+}
+```
+"ObjectsEventFilterToIoTHub" : Will route the output messages from the objectsEventFilter module to the IoT hub.
+"LVAToObjectsEventFilter" : Will route the output of the LVA Module containing the inference results to the objectsEventFilter module.
+"LVADiagnosticsToIoTHub" : Will route telemetry events to IoT Hub.
+"LVAOperationalToIoTHub" : Will route Azure Media Services messages to IoT Hub.
+"ObjectsEventFilterToLVA" : Will route the output messages from the objectsEventFilter module to the LVA Module. This is the message after the filter has a match on the inference results. This message is the trigger for the Signal Gate node to open.
+
 Pay attention to to the bottom part of the template. This is where you specify the attribute values and confidence level to trigger on.
+```
+"objectsEventFilter": {
+     "properties.desired": {
+       "objectTypeValue": "van",
+       "objectTypeName": "type",
+       "objectTagValue": "white",
+       "objectTagName": "color",
+       "objectConfidence": 0.8
+     }
+}
+```
 
 
 
