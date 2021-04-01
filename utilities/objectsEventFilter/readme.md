@@ -84,10 +84,15 @@ The routing of IoT messages between the different IoT Modules are specified here
 }
 ```
 "ObjectsEventFilterToIoTHub" : Will route the output messages from the objectsEventFilter module to the IoT hub.
+
 "LVAToObjectsEventFilter" : Will route the output of the LVA Module containing the inference results to the objectsEventFilter module.
+
 "LVADiagnosticsToIoTHub" : Will route telemetry events to IoT Hub.
+
 "LVAOperationalToIoTHub" : Will route Azure Media Services messages to IoT Hub.
+
 "ObjectsEventFilterToLVA" : Will route the output messages from the objectsEventFilter module to the LVA Module. This is the message after the filter has a match on the inference results. This message is the trigger for the Signal Gate node to open.
+
 
 Pay attention to to the bottom part of the template. This is where you specify the attribute values and confidence level to trigger on.
 ```
