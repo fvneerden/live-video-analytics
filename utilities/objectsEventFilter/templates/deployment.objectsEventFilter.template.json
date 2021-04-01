@@ -198,9 +198,9 @@
     },
     "objectsEventFilter": {
       "properties.desired": {
-        "objectTypeValue": "truck",
+        "objectTypeValue": "van",
         "objectTypeName": "type",
-        "objectTagValue": "red",
+        "objectTagValue": "white",
         "objectTagName": "color",
         "objectConfidence": 0.8
       }
